@@ -50,11 +50,6 @@ export default function AuthNavbar(props) {
     onOpen: onOpenMain,
     onClose: onCloseMain,
   } = useDisclosure();
-  const {
-    isOpen: isOpenNft,
-    onOpen: onOpenNft,
-    onClose: onCloseNft,
-  } = useDisclosure();
   // Menus
   function getLinks(routeName) {
     let foundRoute = routes.filter(function (route) {
@@ -77,7 +72,6 @@ export default function AuthNavbar(props) {
   let authObject = getLinksCollapse("Authentication");
   let mainObject = getLinksCollapse("Main Pages");
   let dashboardsObject = getLinks("Dashboards");
-  let nftsObject = getLinks("NFTs");
   let logoColor = useColorModeValue("white", "white");
   // Chakra color mode
 
@@ -133,20 +127,6 @@ export default function AuthNavbar(props) {
     // colorButton = useColorModeValue("white", "gray.700");
     // navbarPosition = "fixed";
   }
-  const createNftsLinks = (routes) => {
-    return routes.map((link, key) => {
-      return (
-        <NavLink
-          key={key}
-          to={link.layout + link.path}
-          style={{ maxWidth: "max-content", marginLeft: "40px" }}>
-          <Text color='gray.400' fontSize='sm' fontWeight='normal'>
-            {link.name}
-          </Text>
-        </NavLink>
-      );
-    });
-  };
   const createDashboardsLinks = (routes) => {
     return routes.map((link, key) => {
       return (
@@ -389,45 +369,6 @@ export default function AuthNavbar(props) {
             <Flex flexWrap='wrap' align='start' w='500px' gap='16px'>
               {createMainLinks(mainObject)}
             </Flex>
-          </MenuList>
-        </Menu>
-      </Stack>
-      <Stack
-        direction='row'
-        spacing='4px'
-        align='center'
-        color='#fff'
-        fontWeight='bold'
-        onMouseEnter={onOpenNft}
-        onMouseLeave={onCloseNft}
-        cursor='pointer'
-        position='relative'>
-        <Text fontSize='sm' color={mainText}>
-          NFTs
-        </Text>
-        <Box>
-          <Icon
-            mt='8px'
-            as={GoChevronDown}
-            color={mainText}
-            w='14px'
-            h='14px'
-            fontWeight='2000'
-          />
-        </Box>
-        <Menu isOpen={isOpenNft}>
-          <MenuList
-            bg={menuBg}
-            p='22px'
-            minW='350px'
-            cursor='default'
-            borderRadius='15px'
-            position='absolute'
-            top='30px'
-            left='-10px'>
-            <Grid templateColumns='repeat(2, 1fr)' gap='16px'>
-              {createNftsLinks(nftsObject)}
-            </Grid>
           </MenuList>
         </Menu>
       </Stack>

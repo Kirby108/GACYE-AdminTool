@@ -1,7 +1,7 @@
 [
     {
       "name": "default",
-      "type": "sqlite",
+      "type": "mysql",
       "database": "./database.db",
       "autoSchemaSync": true,
       "entities": [

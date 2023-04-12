@@ -1,4 +1,4 @@
-import sql 
+import sqlite3 from 'sqlite3';
 /* eslint-disable import/no-mutable-exports */
 import { Connection, ConnectionOptions, createConnection } from 'typeorm';
 

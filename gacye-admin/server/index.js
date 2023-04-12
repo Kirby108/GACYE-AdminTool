@@ -10,6 +10,10 @@ app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
 });
 
+app.get("api/getEarnings", (req, res)=> {
+  res.json({message: "$420.69"});
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });

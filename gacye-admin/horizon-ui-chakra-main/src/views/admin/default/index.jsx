@@ -59,8 +59,16 @@ import tableDataComplex from "views/admin/default/variables/tableDataComplex.jso
 
 export default function UserReports() {
   // Chakra Color Mode
+  const [data, setData] = React.useState(null);
   const brandColor = useColorModeValue("brand.500", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
+
+  React.useEffect(() => {
+    fetch("/api")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+  }, []);
+
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
       <SimpleGrid
@@ -79,7 +87,7 @@ export default function UserReports() {
             />
           }
           name='Earnings'
-          value='$350.4'
+          value={!data? "Wtf": data}
         />
         <MiniStatistics
           startContent={

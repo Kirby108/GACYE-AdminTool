@@ -20,8 +20,9 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+import React,{useState} from "react";
 
-import React from "react";
+import { useHistory } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 // Chakra imports
 import {
@@ -47,8 +48,16 @@ import illustration from "assets/img/auth/auth.png";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
-
+import { useAuth } from "../../../auth-context/auth.context";
+import AuthApi from "../../../api/auth";
 function SignIn() {
+  const [email, setEmail] = useState("");  // <-- Default values HERE
+  const [password, setPassword] = useState("");       // <-- Default values HERE
+  const [error, setError] = useState(undefined);
+  const [buttonText, setButtonText] = useState("Sign in");
+  const history = useHistory();
+  const { setUser } = useAuth();
+  const { user } = useAuth();
   // Chakra color mode
   const textColor = useColorModeValue("navy.700", "white");
   const textColorSecondary = "gray.400";
@@ -67,6 +76,47 @@ function SignIn() {
   );
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
+  const login = async (event) => {
+    if (event) {
+      event.preventDefault();
+    }
+    if (user && user.token) {
+      return history.push("/admin/dashboards");
+    }
+    if (email === "") {
+      return setError("You must enter your email.");
+    }
+    if (password === "") {
+      return setError("You must enter your password");
+    }
+    setButtonText("Signing in");
+    try {
+      let response = await AuthApi.Login({
+        email,
+        password,
+      });
+      if (response.data && response.data.success === false) {
+        setButtonText("Sign in");
+        return setError(response.data.msg);
+      }
+      return setProfile(response);
+    } catch (err) {
+      console.log(err);
+      setButtonText("Sign in");
+      if (err.message) {
+        return setError(err.message);
+      }
+      return setError("There has been an error.");
+    }
+  };
+  const setProfile = async (response) => {
+    let user = { ...response.data.user };
+    user.token = response.data.token;
+    user = JSON.stringify(user);
+    setUser(user);
+    localStorage.setItem("user", user);
+    return history.push("/dashboards");
+  };
   return (
     <DefaultAuth illustrationBackground={illustration} image={illustration}>
       <Flex
@@ -83,7 +133,7 @@ function SignIn() {
         flexDirection='column'>
         <Box me='auto'>
           <Heading color={textColor} fontSize='36px' mb='10px'>
-            Sign In
+            Sign IN
           </Heading>
           <Text
             mb='36px'
@@ -91,7 +141,7 @@ function SignIn() {
             color={textColorSecondary}
             fontWeight='400'
             fontSize='md'>
-            Enter your email and password to sign in!
+            Open-source Full-stack Starter built with React and Chakra 
           </Text>
         </Box>
         <Flex
@@ -104,29 +154,28 @@ function SignIn() {
           mx={{ base: "auto", lg: "unset" }}
           me='auto'
           mb={{ base: "20px", md: "auto" }}>
-          <Button
-            fontSize='sm'
-            me='0px'
-            mb='26px'
-            py='15px'
-            h='50px'
-            borderRadius='16px'
-            bg={googleBg}
-            color={googleText}
-            fontWeight='500'
-            _hover={googleHover}
-            _active={googleActive}
-            _focus={googleActive}>
-            <Icon as={FcGoogle} w='20px' h='20px' me='10px' />
-            Sign in with Google
-          </Button>
-          <Flex align='center' mb='25px'>
-            <HSeparator />
-            <Text color='gray.400' mx='14px'>
-              or
-            </Text>
-            <HSeparator />
-          </Flex>
+         
+          <Flex
+          zIndex='2'
+          direction='column'
+          w={{ base: "100%", md: "420px" }}
+          maxW='100%'
+          background='transparent'
+          borderRadius='15px'
+          mx={{ base: "auto", lg: "unset" }}
+          me='auto'
+          mb={{ base: "20px", md: "auto" }}>
+            <h4
+              style={{
+                fontSize: ".9em",
+                color: "red",
+                textAlign: "center",
+                fontWeight: 400,
+                transition: ".2s all",
+              }}
+            >
+              {error}
+            </h4>
           <FormControl>
             <FormLabel
               display='flex'
@@ -145,8 +194,13 @@ function SignIn() {
               type='email'
               placeholder='mail@simmmple.com'
               mb='24px'
+              defaultValue={email}
               fontWeight='500'
               size='lg'
+              onChange={(event) => {
+                setEmail(event.target.value);
+                setError(undefined);
+              }}
             />
             <FormLabel
               ms='4px'
@@ -163,8 +217,13 @@ function SignIn() {
                 placeholder='Min. 8 characters'
                 mb='24px'
                 size='lg'
+                defaultValue={password}
                 type={show ? "text" : "password"}
                 variant='auth'
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                  setError(undefined);
+                }}
               />
               <InputRightElement display='flex' alignItems='center' mt='4px'>
                 <Icon
@@ -207,7 +266,8 @@ function SignIn() {
               fontWeight='500'
               w='100%'
               h='50'
-              mb='24px'>
+              mb='24px'
+              onClick={login}>
               Sign In
             </Button>
           </FormControl>
@@ -231,6 +291,7 @@ function SignIn() {
             </Text>
           </Flex>
         </Flex>
+      </Flex>
       </Flex>
     </DefaultAuth>
   );

@@ -1,4 +1,3 @@
-import sqlite3 from 'sqlite3';
 /* eslint-disable import/no-mutable-exports */
 import { Connection, ConnectionOptions, createConnection } from 'typeorm';
 
@@ -6,13 +5,14 @@ import ActiveSession from '../models/activeSession';
 import User from '../models/user';
 import Role from '../models/role';
 
-if (!process.env.SQLITE_PATH) {
-  throw new Error('SQLITE_PATH environment variable is not set.');
-}
 
 const options: ConnectionOptions = {
-  type: 'sqlite',
-  database: process.env.SQLITE_PATH,
+  type: 'mysql',
+  host: process.env.RDS_HOSTNAME,
+  username: process.env.RDS_USERNAME,
+  password: process.env.RDS_PASSWORD,
+  port: 3306,
+  database: process.env.RDS_DB_NAME,
   entities: [User, ActiveSession, Role],
   logging: true,
 };
@@ -30,4 +30,3 @@ export const connect = async (): Promise<Connection | undefined> => {
   return undefined;
 };
 
-export const PrepareDB = () => new sqlite3.Database(':memory:');

@@ -2,7 +2,8 @@
     {
       "name": "default",
       "type": "mysql",
-      "database": "./database.db",
+      "database": "default",
+      "port": 3306,
       "autoSchemaSync": true,
       "entities": [
         "src/models/**/*{.js,.ts}"

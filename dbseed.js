@@ -13,8 +13,27 @@ const con = mysql.createConnection({
     }
 );
 
-con.connect(function (err){
-    if (err) throw err;
-    console.log('connected');
-    con.end();
-});
+console.log('connected');
+con.query('CREATE DATABASE IF NOT EXISTS gacye;');
+con.query('USE gacye;');
+con.query('DROP TABLE IF EXISTS admin;');
+
+con.query('create table admin(username char(20) NOT NULL, password char(20) NOT NULL, primary key (username));',
+    function (error, result, fields) {
+        if (error) throw  error;
+        console.log(result);
+    });
+
+
+con.query("INSERT INTO admin VALUES('jkim3663', 'louis0108');",
+    function (error, result, fields) {
+        if (error) throw  error;
+        console.log(result);
+    });
+
+con.query('USE gacye;');
+con.query('SELECT * FROM admin;',
+    function (error, result, fields) {
+        if (error) throw  error;
+        console.log(result);
+    });

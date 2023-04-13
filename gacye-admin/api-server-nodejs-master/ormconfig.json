@@ -2,8 +2,11 @@
     {
       "name": "default",
       "type": "mysql",
-      "database": "default",
+      "host": "database-1.cej2zfq0kc69.us-east-2.rds.amazonaws.com",
+      "username": "admin",
+      "password": "GacyeDB123",
       "port": 3306,
+      "database": "new_db_name",
       "autoSchemaSync": true,
       "entities": [
         "src/models/**/*{.js,.ts}"

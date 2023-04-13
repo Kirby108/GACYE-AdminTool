@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 node_modules
 package-lock.json
 yarn.lock
@@ -130,4 +129,7 @@ dist
 
 # TernJS port file
 .tern-port
->>>>>>> 1047f7456f834c3d792e639c73a528ffcdeeb924
+
+# DS_Store
+.DS_Store
+=======

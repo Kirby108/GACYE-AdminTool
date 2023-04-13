@@ -37,6 +37,7 @@ import Usa from "assets/img/dashboards/usa.png";
 import MiniCalendar from "components/calendar/MiniCalendar";
 import MiniStatistics from "components/card/MiniStatistics";
 import IconBox from "components/icons/IconBox";
+import GetEarnings from "ApiCalls";
 import React from "react";
 import {
   MdAddTask,
@@ -59,8 +60,10 @@ import tableDataComplex from "views/admin/default/variables/tableDataComplex.jso
 
 export default function UserReports() {
   // Chakra Color Mode
+  const earnings = GetEarnings();
   const brandColor = useColorModeValue("brand.500", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
+
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
       <SimpleGrid
@@ -79,7 +82,7 @@ export default function UserReports() {
             />
           }
           name='Earnings'
-          value='$350.4'
+          value={!earnings? "No data to display at the moment!": earnings}
         />
         <MiniStatistics
           startContent={

@@ -25,8 +25,7 @@ export class init1626737786922 implements MigrationInterface {
                 id varchar (40) NOT NULL, 
                 name text NOT NULL, 
                 date datetime NOT NULL DEFAULT (CURRENT_TIMESTAMP),
-                PRIMARY KEY (id)
-                ))`)
+                PRIMARY KEY (id))`)
         await queryRunner.query(`INSERT INTO role (id, name) VALUES(1, 'admin')`)
         await queryRunner.query(`INSERT INTO role (id, name) VALUES(2, 'user')`)
     }

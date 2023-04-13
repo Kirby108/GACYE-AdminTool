@@ -1,2 +1,16 @@
 {
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "database-1.cej2zfq0kc69.us-east-2.rds.amazonaws.com",
+            "port": 3306,
+            "driver": "MySQL",
+            "username": "admin",
+            "name": "test",
+            "database": "new_db_name"
+        }
+    ]
 }

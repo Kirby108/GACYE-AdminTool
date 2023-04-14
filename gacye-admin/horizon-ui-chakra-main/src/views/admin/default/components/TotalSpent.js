@@ -1,7 +1,6 @@
 import Card from "components/card/Card.js";
 import React from "react";
 import GoogleMapReact from "google-map-react";
-import google, {maps} from "google-map-react";
 export default function TotalSpend(){
 
   

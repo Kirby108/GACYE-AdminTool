@@ -36,5 +36,31 @@ con.query('SELECT * FROM defaultDB.georgia;',
     }
 );
 
+// Using coordinates table to get 393 locations in the globe
+// con.query('SELECT * FROM defaultDB.coordinates;',
+//     function (error, result, fields) {
+//         if (error) throw error;
+//         console.log(result)
+//     }
+// );
+
+
+// Select only latitude from georgia
+// con.query('SELECT latitude FROM defaultDB.georgia;',
+//     function (error, result, fields) {
+//         if (error) throw error;
+//         console.log(result)
+//     }
+// );
+
+// Select only longitude from georgia
+// con.query('SELECT longitude FROM defaultDB.georgia;',
+//     function (error, result, fields) {
+//         if (error) throw error;
+//         console.log(result)
+//     }
+// );
+
+
 
 con.end();

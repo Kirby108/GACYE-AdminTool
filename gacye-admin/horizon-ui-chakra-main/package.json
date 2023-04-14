@@ -3,9 +3,9 @@
   "version": "1.0.1",
   "private": true,
   "build": {
-      "yarn": "v14.0.0,v16.0.0,v18.0.0",
-      "npm": "v14.0.0,v16.0.0,v18.0.0"
-  },   
+    "yarn": "v14.0.0,v16.0.0,v18.0.0",
+    "npm": "v14.0.0,v16.0.0,v18.0.0"
+  },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.5",
     "@chakra-ui/react": "1.8.8",
@@ -24,6 +24,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "framer-motion": "^4.1.17",
+    "google-map-react": "^2.2.0",
     "react": "17.0.2",
     "react-apexcharts": "^1.4.0",
     "react-bootstrap-sweetalert": "^5.2.0",

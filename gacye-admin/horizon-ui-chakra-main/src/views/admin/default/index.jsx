@@ -37,7 +37,7 @@ import Usa from "assets/img/dashboards/usa.png";
 import MiniCalendar from "components/calendar/MiniCalendar";
 import MiniStatistics from "components/card/MiniStatistics";
 import IconBox from "components/icons/IconBox";
-import GetEarnings from "ApiCalls";
+import {GetEarnings, GetLocations} from "ApiCalls";
 import React from "react";
 import {
   MdAddTask,
@@ -50,7 +50,6 @@ import ComplexTable from "views/admin/default/components/ComplexTable";
 import DailyTraffic from "views/admin/default/components/DailyTraffic";
 import Tasks from "views/admin/default/components/Tasks";
 import TotalSpent from "views/admin/default/components/TotalSpent";
-import WeeklyRevenue from "views/admin/default/components/WeeklyRevenue";
 import {
   columnsDataCheck,
   columnsDataComplex,
@@ -61,9 +60,9 @@ import tableDataComplex from "views/admin/default/variables/tableDataComplex.jso
 export default function UserReports() {
   // Chakra Color Mode
   const earnings = GetEarnings();
+  GetLocations();
   const brandColor = useColorModeValue("brand.500", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
-
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
       <SimpleGrid

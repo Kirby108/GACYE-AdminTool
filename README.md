@@ -7,28 +7,26 @@ A web application that supports GACYE's admins to easily manage the website and 
 
 ### Pages
 
-Designed for those who like modern UI elements and beautiful websites. Made of
-hundred of elements, designed blocks and fully coded pages, Horizon UI is ready
-to help you create stunning websites and webapps.
+#### Login Page
+Admins can access the website and its functionalities by login with their username and password. JWT authentication is implemented to make
+the login secrue from potential leaks.
 
-Save hundreds of hours trying to create and develop a dashboard from scratch.
-The fastest, most responsive & trendiest dashboard is here. Seriously.
+#### Main Admin Page
+The main admin page currently has the functionality of viewing user heatmap. GACYE has various users from various regions, and tracking which part of Georgia (or elsewhere) the website users are located in is essential for GACYE leaders to make strategic decisions. 
 
-With Horizon UI you will find many examples for pages like NFTs Pages,
-Authentication Pages, Profile and so on. Just choose between a Basic Design or a
-cover and you are good to go!
-
-
-### Features
-
-Each element is well presented in a very complex documentation. You can read
-more about the <a href="https://horizon-ui.com/documentation/docs/introduction?ref=readme-horizon" target="_blank">documentation
-here.</a>
 
 ### Tech Stack
 
-Install Horizon UI by running either of the following:
-- Install NodeJS LTS from
-  [NodeJs Official Page](https://nodejs.org/en/?ref=horizon-documentation)
-  (NOTE: Product only works with LTS version)
+#### Front-end: React library
+We chose React because it has a lot of functionalities that are built-in to accelerate the implemantation process. Moreover, many UI components are reusable, which means we could still utilize this artifact in the future, even if significant changes are made.
+
+#### Back-end: NodeJS
+NodeJS provides a non-blocking, single threaded I/O which is extremely beneficial to light weight web applications. The Node Package Manager (NPM) is also very helpful on fast implementation by using accessible packages. 
+
+#### Database: MySQL, AWS Relational Database Service (RDS)
+MySQL provides strong data protection, and it has direct support from various cloud services including AWS. MySQL also has high performance, allowing a fast transaction of data to the user. 
+We chose to store the database in cloud, so that the data is protected from potential damage on local storage, and many developers could contirbute on the implementation simultaneously. We chose AWS RDS specifically because AWS is well known for its security and easy-to-manage console. 
+
+  
+ 
 

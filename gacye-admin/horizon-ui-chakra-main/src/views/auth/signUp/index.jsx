@@ -114,7 +114,7 @@ function SignIn() {
     }
   };
   return (
-    <DefaultAuth illustrationBackground={illustration} image={illustration}>
+    <DefaultAuth>
       <Flex
         maxW={{ base: "100%", md: "max-content" }}
         w='100%'
@@ -129,7 +129,7 @@ function SignIn() {
         flexDirection='column'>
         <Box me='auto'>
           <Heading color={textColor} fontSize='36px' mb='10px'>
-            Sign UP
+            Sign Up
           </Heading>
           <Text
             mb='36px'
@@ -137,7 +137,7 @@ function SignIn() {
             color={textColorSecondary}
             fontWeight='400'
             fontSize='md'>
-            Open-source Full-stack Starter built with React and Chakra
+            Please sign up for your adminstrator account
           </Text>
         </Box>
         <Flex

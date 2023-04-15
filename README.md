@@ -5,7 +5,7 @@ A web application that supports GACYE's admins to easily manage the website and 
 
 ---
 
-### Login Page
+### Pages
 
 Designed for those who like modern UI elements and beautiful websites. Made of
 hundred of elements, designed blocks and fully coded pages, Horizon UI is ready
@@ -19,7 +19,7 @@ Authentication Pages, Profile and so on. Just choose between a Basic Design or a
 cover and you are good to go!
 
 
-### Main Page
+### Features
 
 Each element is well presented in a very complex documentation. You can read
 more about the <a href="https://horizon-ui.com/documentation/docs/introduction?ref=readme-horizon" target="_blank">documentation

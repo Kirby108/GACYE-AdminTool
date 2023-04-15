@@ -12,7 +12,7 @@ Admins can access the website and its functionalities by login with their userna
 the login secrue from potential leaks.
 
 #### Main Admin Page
-The main admin page currently has the functionality of viewing user heatmap. GACYE has various users from various regions, and tracking which part of Georgia (or elsewhere) the website users are located in is essential for GACYE leaders to make strategic decisions. 
+The main admin page currently has the functionality of viewing a heatmap that displays where users are accessing the website from. GACYE has various users from various regions, and tracking which part of Georgia (or elsewhere) the website users are located in is essential for GACYE leaders to make strategic decisions. We chose to implement this feature for our artifact implementation because it'll be a key component the admin tool, and makes good use of each part of the tech stack so we can evaluate whether the technologies we chose will be appropriate for the final project. The map needs to be neatly presented in the frontend, while making use of backend code to efficiently retrieve and send large amounts of data entries from the database. In general, the admin page will mainly include components whose functionality is to pull data from the database and display it in efficient and useful ways for GACYE admins to analyze (eg. displaying an overview of monthly donations, displaying a chart of volunteers, etc.), and the heatmap exemplifies this functionality. Thus, we thought it would be useful to code it for our artifact demo and understand the nature of the work we will be doing, and evaluate whether our tasks are compatible with the tech stack we've chosen.
 
 
 ### Tech Stack

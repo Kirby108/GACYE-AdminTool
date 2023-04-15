@@ -33,7 +33,7 @@ import Upload from "views/admin/profile/components/Upload";
 
 // Assets
 import banner from "assets/img/auth/banner.png";
-import avatar from "assets/img/avatars/avatar4.png";
+import avatar from "assets/img/avatars/avatar11.png";
 import React from "react";
 
 export default function Overview() {
@@ -54,8 +54,8 @@ export default function Overview() {
           gridArea='1 / 1 / 2 / 2'
           banner={banner}
           avatar={avatar}
-          name='Adela Parkson'
-          job='Product Designer'
+          name='Mike Daniels'
+          job='Executive Director'
           posts='17'
           followers='9.7k'
           following='274'

@@ -2,6 +2,7 @@ import React from "react";
 
 // Chakra imports
 import { Flex, useColorModeValue } from "@chakra-ui/react";
+import { Image } from '@chakra-ui/react'
 
 // Custom components
 import { HorizonLogo } from "components/icons/Icons";
@@ -13,7 +14,7 @@ export function SidebarBrand() {
 
   return (
     <Flex align='center' direction='column'>
-      <HorizonLogo h='26px' w='175px' my='32px' color={logoColor} />
+      <Image src="https://gacye.org/wp-content/uploads/2021/06/New-Logo.png"></Image>
       <HSeparator mb='20px' />
     </Flex>
   );

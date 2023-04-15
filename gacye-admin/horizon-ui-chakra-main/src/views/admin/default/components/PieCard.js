@@ -63,23 +63,23 @@ export default function Conversion(props) {
               color='secondaryGray.600'
               fontWeight='700'
               mb='5px'>
-              Your files
+              Clients
             </Text>
           </Flex>
           <Text fontSize='lg' color={textColor} fontWeight='700'>
             63%
           </Text>
         </Flex>
-        <VSeparator mx={{ base: "60px", xl: "60px", "2xl": "60px" }} />
-        <Flex direction='column' py='5px' me='10px'>
+        <VSeparator mx={{ base: "25px", xl: "25px", "2xl": "25px" }} />
+        <Flex direction='column' py='5px' me='0px'>
           <Flex align='center'>
-            <Box h='8px' w='8px' bg='#6AD2FF' borderRadius='50%' me='4px' />
+            <Box h='8px' w='8px' bg='#6AD2FF' borderRadius='50%' me='0px' />
             <Text
               fontSize='xs'
               color='secondaryGray.600'
               fontWeight='700'
               mb='5px'>
-              System
+              Volunteers
             </Text>
           </Flex>
           <Text fontSize='lg' color={textColor} fontWeight='700'>

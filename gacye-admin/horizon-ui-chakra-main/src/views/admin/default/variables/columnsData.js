@@ -4,12 +4,8 @@ export const columnsDataCheck = [
     accessor: "name",
   },
   {
-    Header: "PROGRESS",
-    accessor: "progress",
-  },
-  {
-    Header: "QUANTITY",
-    accessor: "quantity",
+    Header: "AVAILABILITY",
+    accessor: "availability",
   },
   {
     Header: "DATE",

@@ -28,13 +28,31 @@ con.query('SHOW tables;',
     }
 );
 
+var GetAllLocationsModule = (function() {
+    let GetAllLocations = function () {
+        con.query('SELECT * FROM defaultDB.georgia;',
+            function (error, result, fields) {
+                if (error) throw error;
+                for (i = 0; i < result.length; i++){
+                    var latitude = result[i].latitude;
+                    console.log(latitude)
+                    var longitude = result[i].longitude;
+                    console.log(longitude)
+                }
+            }
+        );
+    };
+    return GetAllLocations;
+})();
 
-con.query('SELECT * FROM defaultDB.georgia;',
-    function (error, result, fields) {
-        if (error) throw error;
-        console.log(result)
-    }
-);
+GetAllLocationsModule();
+// con.query('SELECT * FROM defaultDB.georgia;',
+//     function (error, result, fields) {
+//         if (error) throw error;
+//         // var latitude = result.toString();
+//         console.log(result)
+//     }
+// );
 
 // Using coordinates table to get 393 locations in the globe
 // con.query('SELECT * FROM defaultDB.coordinates;',

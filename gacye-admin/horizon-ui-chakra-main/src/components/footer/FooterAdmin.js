@@ -19,14 +19,14 @@ export default function Footer() {
       zIndex='3'
       flexDirection={{
         base: "column",
-        xl: "row",
+        lg: "row",
       }}
       alignItems={{
         base: "center",
         xl: "start",
       }}
       justifyContent='space-between'
-      px={{ base: "30px", md: "50px" }}
+      px={{ base: "30px", md: "0px" }}
       pb='30px'>
       <Text
         color={textColor}
@@ -34,53 +34,40 @@ export default function Footer() {
           base: "center",
           xl: "start",
         }}
-        mb={{ base: "20px", xl: "0px" }}>
-        {" "}
+        mb={{ base: "20px", lg: "0px" }}>
+        {"    "}
         &copy; {1900 + new Date().getYear()}
         <Text as='span' fontWeight='500' ms='4px'>
           <Link
             mx='3px'
             color={textColor}
-            href='https://www.simmmple.com'
-            target='_blank'>
-            Simmmple
-          </Link> 
-          - Coded by 
+            href='https://www.gacye.org/'
+            target='_blank'
+            fontWeight='700'>
+            GACYE
+          </Link>
+          - Coded By
           <Link
             mx='3px'
             color={textColor}
             href='https://appseed.us'
             target='_blank'>
-            AppSeed
-          </Link> 
+            SRCCodeSix
+          </Link>           
         </Text>
       </Text>
       <List display='flex'>
-      <ListItem
-          me={{
-            base: "20px",
-            md: "44px",
-          }}>
-          <Link
-            fontWeight='500'
-            color={textColor}
-            target='_blank'
-            href='https://github.com/app-generator/react-horizon-ui-chakra'>
-            Source Code
-          </Link>
-        </ListItem>        
         <ListItem
           me={{
             base: "20px",
             md: "44px",
           }}>
-          <Link
-            fontWeight='500'
-            color={textColor}
-            target='_blank'
-            href='https://appseed.us/support/'>
-            Support
-          </Link>
+        </ListItem>
+        <ListItem
+          me={{
+            base: "20px",
+            md: "44px",
+          }}>
         </ListItem>
       </List>
     </Flex>

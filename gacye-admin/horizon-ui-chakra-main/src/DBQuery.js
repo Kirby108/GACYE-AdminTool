@@ -1,3 +1,4 @@
+const { get } = require('babel-register/lib/cache');
 const mysql = require('mysql');
 
 process.env.RDS_HOSTNAME = 'database-2.cej2zfq0kc69.us-east-2.rds.amazonaws.com';
@@ -37,26 +38,66 @@ const con = mysql.createConnection({
 //     return GetAllLocations;
 // })();
 
-function GetL(callback) {
+// var arr;
+// arr = await function GetL(callback) {
+//     con.query('SELECT * FROM defaultDB.georgia;',
+//             function (error, result, fields) {
+//                 if (error) throw error;
+//                 // var arr = [];
+//                 for (i = 0; i < result.length; i++){
+//                     var json = {
+//                         "lat": String(result[i].latitude),
+//                         "lng": String(result[i].longitude)
+//                     };
+//                     arr.push(json);
+//                 }
+//                 callback(arr);
+//             }
+//         );
+// }
+
+
+// // var ret = GetAllLocationsModule.GetAllLocations();
+// // GetL(function(result){return result;});
+// var ar;
+// GetL(function(data){
+//     // console.log(data);
+//     return data;
+// });
+// console.log(arr);
+
+function Gatherdata() {
+    const fs = require('fs');
+    fs.writeFile('./test.txt', "", err => {
+                        if (err) {
+                          console.error(err);
+                        }
+                        // file written successfully
+                      });
+    fs.close;
+    
     con.query('SELECT * FROM defaultDB.georgia;',
             function (error, result, fields) {
                 if (error) throw error;
-                // var arr = [];
+                var arr = [];
+                // fs.writeFile('./test.txt', result);
                 for (i = 0; i < result.length; i++){
                     var json = {
                         "lat": String(result[i].latitude),
                         "lng": String(result[i].longitude)
                     };
+                    fs.appendFile('./test.txt', JSON.stringify(json) + "\n", err => {
+                        if (err) {
+                          console.error(err);
+                        }
+                        // file written successfully
+                      });
                     arr.push(json);
                 }
-                return callback(arr);
+                console.log(arr);
+                // fs.writeFile('./test.txt', result);
             }
-        );
+    );
 }
 
-
-// var ret = GetAllLocationsModule.GetAllLocations();
-var arr = [];
-GetL(function(result){return result;});
-
-console.log(GetL(arr));
+Gatherdata();

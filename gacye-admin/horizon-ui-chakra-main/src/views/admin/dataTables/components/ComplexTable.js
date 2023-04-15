@@ -114,18 +114,18 @@ export default function ColumnsTable(props) {
                           color={
                             cell.value === "Approved"
                               ? "green.500"
-                              : cell.value === "Disable"
+                              : cell.value === "Denied"
                               ? "red.500"
-                              : cell.value === "Error"
+                              : cell.value === "Manual Check"
                               ? "orange.500"
                               : null
                           }
                           as={
                             cell.value === "Approved"
                               ? MdCheckCircle
-                              : cell.value === "Disable"
+                              : cell.value === "Denied"
                               ? MdCancel
-                              : cell.value === "Error"
+                              : cell.value === "Manual Check"
                               ? MdOutlineError
                               : null
                           }
@@ -135,7 +135,7 @@ export default function ColumnsTable(props) {
                         </Text>
                       </Flex>
                     );
-                  } else if (cell.column.Header === "DATE") {
+                  } else if (cell.column.Header === "AVAILABLE?") {
                     data = (
                       <Text color={textColor} fontSize='sm' fontWeight='700'>
                         {cell.value}

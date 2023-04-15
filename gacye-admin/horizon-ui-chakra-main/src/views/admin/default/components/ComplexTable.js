@@ -114,18 +114,18 @@ export default function ColumnsTable(props) {
                           color={
                             cell.value === "Approved"
                               ? "green.500"
-                              : cell.value === "Disable"
+                              : cell.value === "Denied"
                               ? "red.500"
-                              : cell.value === "Error"
+                              : cell.value === "Manual Review"
                               ? "orange.500"
                               : null
                           }
                           as={
                             cell.value === "Approved"
                               ? MdCheckCircle
-                              : cell.value === "Disable"
+                              : cell.value === "Denied"
                               ? MdCancel
-                              : cell.value === "Error"
+                              : cell.value === "Manual Review"
                               ? MdOutlineError
                               : null
                           }
